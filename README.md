@@ -1,6 +1,6 @@
 # AbdullahPortfolio
 
-Modern, performant portfolio built with Astro, featuring zero JavaScript by default and optimal performance.
+Modern, performant portfolio Developed by Anas Farooq, featuring zero JavaScript by default and optimal performance.
 
 <p align="center">
   <img src="image.png" alt="AbdullahPortfolio Banner" />
