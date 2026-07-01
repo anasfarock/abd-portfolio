@@ -1,25 +1,30 @@
 <header class="header fade-in">
-  <div class="container">
-    <div class="hero-label">Student Dude</div>
-    <h1 class="name">
-      <span class="name-line">
-        <span class="name-char">a</span><span class="name-char">b</span><span
-          class="name-char">d</span
-        ><span class="name-char">u</span><span class="name-char">l</span><span
-          class="name-char">l</span
-        ><span class="name-char">a</span><span class="name-char">h</span>
-      </span>
-      <span class="name-line">
-        <span class="name-char">j</span><span class="name-char">a</span><span
-          class="name-char">v</span
-        ><span class="name-char">e</span><span class="name-char">d</span>
-      </span>
-    </h1>
-    <p class="title">I build developer tools, game engines, and open source infrastructure.</p>
-    <div class="hero-links">
-      <a href="mailto:tribejustice35@gmail.com">mail</a>
-      <a href="https://github.com/abdullah2709" target="_blank" rel="noopener">github</a>
-      <a href="https://linkedin.com/in/abdullah2709" target="_blank" rel="noopener">linkedin</a>
+  <div class="container hero-container">
+    <div class="hero-content">
+      <div class="hero-label">AI & ML Student</div>
+      <h1 class="name">
+        <span class="name-line">
+          <span class="name-char">a</span><span class="name-char">b</span><span
+            class="name-char">d</span
+          ><span class="name-char">u</span><span class="name-char">l</span><span
+            class="name-char">l</span
+          ><span class="name-char">a</span><span class="name-char">h</span>
+        </span>
+        <span class="name-line">
+          <span class="name-char">j</span><span class="name-char">a</span><span
+            class="name-char">v</span
+          ><span class="name-char">e</span><span class="name-char">d</span>
+        </span>
+      </h1>
+      <p class="title">I build intelligent systems, train machine learning models, and develop open-source tech.</p>
+      <div class="hero-links">
+        <a href="mailto:aj96dude@gmail.com">mail</a>
+        <a href="https://github.com/abdullah2709" target="_blank" rel="noopener">github</a>
+      </div>
+    </div>
+    
+    <div class="hero-visual fade-in">
+      <canvas id="particle-wave"></canvas>
     </div>
   </div>
 </header>
@@ -51,6 +56,74 @@
       (char as HTMLElement).style.animationDelay = `${i * 0.06}s`;
       char.classList.add("fade-in");
     });
+
+    // Particle Wave Animation
+    const canvas = document.getElementById("particle-wave") as HTMLCanvasElement;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let width: number, height: number;
+    const resize = () => {
+      width = canvas.parentElement?.clientWidth || 600;
+      height = canvas.parentElement?.clientHeight || 400;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      ctx.scale(dpr, dpr);
+    };
+    window.addEventListener("resize", resize);
+    resize();
+
+    let time = 0;
+    const draw = () => {
+      ctx.clearRect(0, 0, width, height);
+      
+      const accentColor = getComputedStyle(document.documentElement)
+        .getPropertyValue('--accent-color').trim() || '#3b82f6';
+      ctx.fillStyle = accentColor;
+      
+      const cols = 35;
+      const rows = 35;
+      const spacing = 40;
+      
+      for (let z = 0; z < rows; z++) {
+        for (let x = 0; x < cols; x++) {
+          const px = (x - cols / 2) * spacing;
+          const pz = (z - rows / 2) * spacing;
+          
+          // 3D rolling ocean wave calculation
+          const py = Math.sin(px * 0.015 + time) * 35 + 
+                     Math.sin(pz * 0.015 + time) * 35;
+          
+          // Perspective projection
+          const focalLength = 400;
+          const cameraZ = 700;
+          const adjustedZ = pz + cameraZ; 
+          
+          if (adjustedZ <= 0) continue;
+          
+          const scale = focalLength / adjustedZ;
+          const screenX = width / 2 + px * scale;
+          const screenY = height / 2 + py * scale + (pz * 0.4 * scale);
+          
+          const size = Math.max(0.5, 1.8 * scale);
+          const alpha = Math.min(1, Math.max(0.05, scale * 1.5 - 0.3));
+          
+          // Culling off-screen particles for performance
+          if (screenX > -10 && screenX < width + 10 && screenY > -10 && screenY < height + 10) {
+            ctx.globalAlpha = alpha;
+            ctx.beginPath();
+            ctx.arc(screenX, screenY, size, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+      }
+      
+      time += 0.02;
+      requestAnimationFrame(draw);
+    };
+    draw();
   });
 </script>
 
@@ -187,5 +260,38 @@
       flex-wrap: wrap;
       gap: 0.5rem;
     }
+
+    .hero-visual {
+      display: none;
+    }
+  }
+
+  /* Layout and Tech Wave Styles */
+  .hero-container {
+    position: relative;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-visual {
+    position: absolute;
+    right: 0;
+    top: 75%;
+    transform: translateY(-50%);
+    width: 65%;
+    max-width: 700px;
+    height: 120%;
+    z-index: 1;
+    opacity: 0.35;
+    pointer-events: none;
+    color: var(--accent-color);
+  }
+
+  #particle-wave {
+    width: 100%;
+    height: 100%;
   }
 </style>
