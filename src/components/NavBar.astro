@@ -12,8 +12,8 @@ const navLinks = [
 <header id="site-nav">
   <nav>
     <a href="#" class="skip-link" tabindex="0">Skip to Main Content</a>
-    <ul>
-      <li id="home">
+    <div class="nav-container">
+      <div class="nav-mobile-header">
         <a href="/" class="home-link">
           <svg class="home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
@@ -21,42 +21,52 @@ const navLinks = [
           </svg>
           <span>abdullah javed</span>
         </a>
-      </li>
-      <li class="divider" aria-hidden="true"></li>
-      {navLinks.map((link) => (
-        <li>
-          <a href={link.url} class="nav-link">{link.name}</a>
-        </li>
-      ))}
-      <li class="divider" aria-hidden="true"></li>
-      <li id="theme-switcher">
-        <button id="theme-toggle-light" class="theme-btn" aria-label="Light theme" title="Light theme">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        <button id="mobile-menu-btn" aria-label="Toggle Menu" aria-expanded="false">
+          <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
           </svg>
         </button>
-        <button id="theme-toggle-dark" class="theme-btn" aria-label="Dark theme" title="Dark theme">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-      </li>
-      <li>
-        <a href="https://github.com/aj96dude-max/AbdullahPortfolio" target="_blank" rel="noopener noreferrer" class="nav-link nav-icon-link" aria-label="GitHub" title="GitHub">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-          </svg>
-        </a>
-      </li>
-    </ul>
+      </div>
+
+      <div class="nav-menu" id="nav-menu">
+        <div class="divider d-1" aria-hidden="true"></div>
+        <div class="nav-group nav-links">
+          {navLinks.map((link) => (
+            <a href={link.url} class="nav-link">{link.name}</a>
+          ))}
+        </div>
+        <div class="divider d-2" aria-hidden="true"></div>
+        <div class="nav-group nav-actions">
+          <div id="theme-switcher">
+            <button id="theme-toggle-light" class="theme-btn" aria-label="Light theme" title="Light theme">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+            </button>
+            <button id="theme-toggle-dark" class="theme-btn" aria-label="Dark theme" title="Dark theme">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </button>
+          </div>
+          <a href="https://github.com/aj96dude-max/AbdullahPortfolio" target="_blank" rel="noopener noreferrer" class="nav-link nav-icon-link" aria-label="GitHub" title="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
   </nav>
 </header>
 
@@ -100,10 +110,24 @@ const navLinks = [
 
   sections.forEach(section => observer.observe(section));
 
-  // Smooth scroll for nav links
+  // Mobile Menu Toggle
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const navMenu = document.getElementById('nav-menu');
+  
+  mobileMenuBtn?.addEventListener('click', () => {
+    navMenu?.classList.toggle('open');
+    const isOpen = navMenu?.classList.contains('open');
+    mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // Smooth scroll for nav links and close menu
   document.querySelectorAll('#site-nav a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
       e.preventDefault();
+      
+      navMenu?.classList.remove('open');
+      mobileMenuBtn?.setAttribute('aria-expanded', 'false');
+
       const target = document.querySelector((anchor as HTMLAnchorElement).getAttribute('href')!);
       target?.scrollIntoView({ behavior: 'smooth' });
     });
@@ -192,15 +216,41 @@ const navLinks = [
     padding: 0.35rem 0.5rem;
   }
 
-  nav ul {
+  .nav-container {
     display: flex;
     align-items: center;
     gap: 0.15rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    flex-wrap: wrap;
-    justify-content: center;
+  }
+
+  .nav-mobile-header {
+    display: flex;
+    align-items: center;
+  }
+
+  #mobile-menu-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--primary-text);
+    cursor: pointer;
+    padding: 0.4rem;
+  }
+
+  .hamburger-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+  }
+
+  .nav-group {
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
   }
 
   .divider {
@@ -212,7 +262,7 @@ const navLinks = [
   }
 
   /* Home link */
-  #home a {
+  .home-link {
     display: flex;
     align-items: center;
     gap: 0.4rem;
@@ -226,7 +276,7 @@ const navLinks = [
     white-space: nowrap;
   }
 
-  #home a:hover {
+  .home-link:hover {
     background: var(--hover-bg);
     text-decoration: none;
   }
@@ -313,6 +363,86 @@ const navLinks = [
   /* Mobile responsive */
   @media (max-width: 768px) {
     #site-nav {
+      top: 0.5rem;
+      padding: 0 0.5rem;
+    }
+
+    nav {
+      padding: 0.75rem;
+      border-radius: 1.5rem;
+      width: 100%;
+    }
+
+    .nav-container {
+      flex-direction: column;
+      gap: 0;
+      align-items: stretch;
+    }
+
+    .nav-mobile-header {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    #mobile-menu-btn {
+      display: block;
+    }
+
+    .nav-menu {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+      border-top: 1px solid var(--border-color);
+      gap: 1rem;
+    }
+
+    .nav-menu.open {
+      display: flex;
+    }
+
+    .nav-group {
+      justify-content: center;
+      width: 100%;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .nav-links {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.25rem;
+    }
+
+    .nav-link {
+      padding: 0.5rem 0.5rem;
+      font-size: 0.95rem;
+      text-align: center;
+      width: 100%;
+      justify-content: center;
+      border-radius: var(--rounded-corner-small);
+    }
+
+    .home-link {
+      padding: 0.4rem 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .home-link span {
+      display: inline;
+    }
+
+    .theme-btn {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    .divider {
+      display: none;
+    }
+
+    .nav-icon-link {
       display: none;
     }
   }
