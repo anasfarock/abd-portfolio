@@ -32,64 +32,59 @@ const other = projects.filter((p) => !p.data.featured);
 
 const skillGroups = [
   {
-    label: "Languages",
-    items: ["TypeScript", "Python", "Go", "Lua", "C", "C#"],
+    label: "Programming Languages",
+    items: ["Python", "SQL", "C++", "Java"],
   },
   {
-    label: "Frontend",
-    items: ["React", "Astro", "Vite", "HTML/CSS"],
+    label: "AI & ML",
+    items: ["Machine Learning", "Deep Learning", "CNN", "RNN", "LSTM", "GANs", "Transformers"],
   },
   {
-    label: "Backend and Tools",
-    items: ["FastAPI", "Solar2D", "CMake", "Git"],
+    label: "Computer Vision",
+    items: ["OCR", "CBIR", "Texture Analysis", "Pattern Recognition"],
   },
   {
-    label: "Infrastructure",
-    items: ["Linux", "Docker", "GitHub Actions", "Vercel"],
+    label: "Database & Networking",
+    items: ["SQL", "Email Server Configuration", "Wi-Fi Technologies", "Cybersecurity"],
   },
 ];
 
 const highlights = [
   {
-    metric: "50k+",
-    label: "Downloads across Python and C projects.",
+    metric: "AI Projects",
+    label: "Engineered predictive models and computer vision systems.",
   },
   {
-    metric: "100k+",
-    label: "Visitors across live deployments.",
+    metric: "Assistive Tech",
+    label: "Designed a smart navigation stick for visually impaired.",
   },
   {
-    metric: "10+",
-    label: "Listed repos for minimalist design.",
+    metric: "Tech Research",
+    label: "Authored technical papers on cybersecurity and wireless.",
   },
   {
-    metric: "Top 80",
-    label: "GambitoR 4.0 at IIT Roorkee out of 100k+ participants.",
+    metric: "Infrastructure",
+    label: "Configured robust email servers and optimized SQL data.",
   },
   {
-    metric: "Shastra 2026",
-    label: "Qualified both rounds at IIT Madras. DSA, coding, maths, and reasoning against school and college students.",
+    metric: "Filmmaking",
+    label: "Co-created, wrote, and acted in independent short films.",
   },
   {
-    metric: "3rd Global",
-    label: "Won Lumi Hackathon. Placed 3rd globally and received $200 in cash prizes.",
+    metric: "Fitness Content",
+    label: "Founded and expanded the berserker gutts fitness brand.",
   },
 ];
 
 const building = [
   {
-    name: "HyPrism",
-    description: "Multiplatform Hytale launcher with integrated mod management. Written in Go.",
+    name: "Blind Assistance Kit",
+    description: "Final Year Project: Smart stick with environment sensing and AI-assisted navigation.",
     status: "active",
   },
   {
-    name: "FR2: Reborn",
-    description: "Complete multiplayer racing game remake. Built with Solar2D and Lua.",
-    status: "active",
-  },
-  {
-    name: "Needlelight",
-    description: "Refined Lumafly assistant with cross platform tooling. Built with C# and Python.",
+    name: "AI Outfit Generator",
+    description: "Research proposal for an AI-powered wardrobe analysis and recommendation app.",
     status: "active",
   },
 ];
@@ -104,16 +99,14 @@ const building = [
         <SectionHeader title="about" number="01" />
         <div class="about-content">
           <p>
-            I write software that ships. My work spans developer tooling,
-            game engine internals, and web infrastructure. I build in Go,
-            TypeScript, Python, and Lua, and I contribute to open source
-            projects that people actually use.
+            I am a student pursuing a Bachelor of Artificial Intelligence in Pakistan. 
+            My expertise spans Machine Learning, Computer Vision, and Deep Learning. 
+            I build intelligent systems that solve real-world problems.
           </p>
           <p>
-            When I solve a problem, I publish the solution. When existing tools
-            fall short, I build better ones. That approach has led to 50k+
-            downloads, recognition across international hackathons, and a
-            portfolio of tools used by developers worldwide.
+            From predicting heart disease to developing smart assistive technology for the visually impaired, 
+            I thrive on taking complex data and turning it into actionable insights and tools.
+            When I am not coding, I am exploring storytelling through independent filmmaking.
           </p>
         </div>
       </div>
@@ -193,9 +186,29 @@ const building = [
       </div>
     </section>
 
+    <section id="creative" class="section fade-in">
+      <div class="container">
+        <SectionHeader title="creative pursuits" number="05" />
+        <div class="creative-content">
+          <div class="creative-item slide-up" style="animation-delay: 0.1s">
+            <h3 class="creative-title">Independent Filmmaking</h3>
+            <p class="creative-desc">
+              Story writer, script developer, actor, and crew member. Co-created the time-loop story <strong>"Waqtn fa Waqtan"</strong> and acted in a spiritual-themed short film.
+            </p>
+          </div>
+          <div class="creative-item slide-up" style="animation-delay: 0.2s">
+            <h3 class="creative-title">Content Creation</h3>
+            <p class="creative-desc">
+              Created and managed the fitness Instagram page <strong>berserker_gutts</strong> focusing on strength training and fitness motivation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="building" class="section fade-in">
       <div class="container">
-        <SectionHeader title="currently building" number="05" />
+        <SectionHeader title="currently building" number="06" />
         <div class="building-list">
           {
             building.map((item, i) => (
@@ -216,7 +229,7 @@ const building = [
 
     <section id="contact" class="section fade-in">
       <div class="container">
-        <SectionHeader title="contact" number="06" />
+        <SectionHeader title="contact" number="07" />
         <ContactForm />
       </div>
     </section>
@@ -438,7 +451,7 @@ const building = [
   .building-list {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 1.5rem;
     margin-top: 1.5rem;
   }
 
@@ -446,12 +459,17 @@ const building = [
     display: flex;
     align-items: flex-start;
     gap: 1rem;
-    padding: 1.25rem 0;
-    border-bottom: 1px solid var(--border-color);
+    background: var(--glass-bg);
+    backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+    padding: 1.5rem;
+    border-radius: var(--rounded-corner);
+    border: 1px solid var(--border-color);
+    transition: var(--transition-smooth);
   }
 
-  .building-item:last-child {
-    border-bottom: none;
+  .building-item:hover {
+    border-color: var(--accent-color);
   }
 
   .building-status {
@@ -485,6 +503,45 @@ const building = [
     color: var(--tertiary-text);
     line-height: 1.5;
     font-weight: 400;
+  }
+
+  /* Creative Pursuits */
+  .creative-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .creative-item {
+    background: var(--glass-bg);
+    backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+    padding: 1.5rem;
+    border-radius: var(--rounded-corner);
+    border: 1px solid var(--border-color);
+    transition: var(--transition-smooth);
+  }
+
+  .creative-item:hover {
+    border-color: var(--accent-color);
+  }
+
+  .creative-title {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--primary-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .creative-desc {
+    font-size: var(--font-size-small);
+    color: var(--secondary-text);
+    line-height: 1.6;
+  }
+  .creative-desc strong {
+    color: var(--primary-text);
+    font-weight: 500;
   }
 
   @media (max-width: 768px) {
