@@ -1,4 +1,4 @@
-# AbdullahPortfolio
+# Abdullah Javed
 
 Modern, performant portfolio Developed by Anas Farooq, featuring zero JavaScript by default and optimal performance.
 
