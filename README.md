@@ -99,8 +99,6 @@ MIT License
 
 ## Author
 
-abdullah javed
+- Muhammad Anas Farooq
 
-- GitHub: @abdullah2709
-- LinkedIn: abdullah2709
-- Email: tribejustice35@gmail.com
+- GitHub: @anasfarock
